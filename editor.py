@@ -1,6 +1,4 @@
 import sys, os
-import zlib
-import itertools
 
 from Common import *
 from Items import *
@@ -62,9 +60,16 @@ class Character(DataBase):
             Field('exp',            0x7390, 4), #only for current level
             Field('gold',           0x7394, 4),
         ]
+        if (Globals.is_dlc):
+            #These were set to "1" for a non-DLC save I tried. I have no idea if they're used for anything.
+            self.fields.extend([
+                Field('style',          0x20d6, 1),
+                Field('substyle',       0x20d7, 1),
+            ])
         #Currently available force
         self.fields.extend(Globals.array_to_field(Globals.force, 0x73b4, 4, 'force'))
         #Level-up stat allocations
+        #DLC: These are all 0. The level-up change might mean they're stored separately now...
         self.fields.extend(Globals.array_to_field(Globals.stats, 0x1168, 4, 'stat'))
         
         #The force grid is around 0x374f. I'm not going to try to decode that.
@@ -318,6 +323,15 @@ class Record(DataBase):
         self.fields.extend(Globals.array_to_field(Globals.force, 0x27F0, 4, 'total'))
         super().__init__(filedata)
 
+#DLC only.
+class Style(DataBase):
+    pass
+    #Current style is at 0x20d6; substyle 0x20d7 (Character)
+    #Unlock flag _might_ be around 0x1930. That was Dancer.
+    #Each style can have up to 3 boards, which have their own selections...
+    #and an XP bar per style.
+    #But these would be a pain to deal with.
+
 def add_force(val, color = None):
     assert val > 0
     if color is None:
@@ -342,6 +356,7 @@ if len(sys.argv) == 1:
 
 #Read in the save file...
 fname = sys.argv[1]
+Globals.set_is_dlc(fname)
 with open(fname, 'rb') as f:
     fdata = bytearray(f.read())
 outfilename = os.path.splitext(fname)[0] + '_edit.DAT'
@@ -355,7 +370,7 @@ chara = Character(fdata)
 items = Items(fdata)
 lib = Libra(fdata, items)
 #lib.Print()
-items.Print()
+#items.Print()
 qinv = QuickInventory(fdata, items)
 #qinv.Print()
 partners = Partners(fdata)
@@ -364,7 +379,7 @@ partners = Partners(fdata)
 #partners.SetXp('Kai')
 
 #add_force(50000)
-#chara.Print()
+chara.Print()
 
 #misc achievements
 #stats.hits = 200000
@@ -381,20 +396,5 @@ partners = Partners(fdata)
 #partners.Write(fdata)
 
 
-def WriteToDisk(fdata, outfilename):
-    #The end of the file contains two CRC32 blocks: 
-    #1. CRC32 of the first 0x735c bytes (i.e. everything except the last 0x400)
-    #2. CRC32 of the last 0x400 bytes. Obviously excluding the prior CRC data.
-    #I believe that this is because the last 0x400 contains data that's visible on the Load page.
-    fdata = fdata[:-8]
-    ldata = fdata[0:-400]
-    rdata = fdata[-400:]
 
-    lcrc = zlib.crc32(ldata).to_bytes(4, byteorder='little')
-    rcrc = zlib.crc32(rdata).to_bytes(4, byteorder='little')
-    with open(outfilename, 'wb') as f:
-        f.write(fdata)  #Already removed the CRC
-        f.write(lcrc)
-        f.write(rcrc)
-#If nothing is changed within this program, but the save is manually edited, this will still fix the CRC.
 #WriteToDisk(fdata, outfilename)

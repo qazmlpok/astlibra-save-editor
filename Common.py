@@ -1,8 +1,20 @@
 import csv
 import re
 import os
+import zlib
+import itertools
 
 class Globals():
+    #Global state.
+    #Because message passing is annoying.
+    is_dlc = False
+    @staticmethod
+    def set_is_dlc(filename):
+        basename = os.path.basename(filename)
+        if 'GAIDEN' in basename:
+            Globals.is_dlc = True
+
+    #Data that's easier to hardcode in source instead of making CSVs.
     #This should be in a different file or something.
     force = [
         'Fire',     #Red (0x73b4)
@@ -42,6 +54,8 @@ class Globals():
             ret.append(Field(field_name, start + i*size, size))
         return ret
 
+#Class for automating the process of reading/loading data.
+#...It works better in Labyrinth of Touhou.
 class Field():
     """ Represents a single field with a known size and position
     Uses get/set attr to store the data on the containing object.
@@ -117,3 +131,25 @@ def open_spreadsheet(fname):
             row['Id'] = id
             csvdata[id] = row
     return csvdata
+
+def WriteToDisk(fdata, outfilename):
+    """ Write a save file to disk.
+    This will write fdata to outfilename, and correct the CRC data.
+    If the file is modified without fixing the CRC data it will fail to load in game.
+    If nothing is changed within this program, but the save is manually edited, this will still fix the CRC.
+    """
+    #The end of the file contains two CRC32 blocks: 
+    #1. CRC32 of the first 0x735c bytes (i.e. everything except the last 0x400)
+    #2. CRC32 of the last 0x400 bytes. Obviously excluding the prior CRC data.
+    #I believe that this is because the last 0x400 contains data that's visible on the Load page.
+    fdata = fdata[:-8]
+    ldata = fdata[0:-400]
+    rdata = fdata[-400:]
+
+    lcrc = zlib.crc32(ldata).to_bytes(4, byteorder='little')
+    rcrc = zlib.crc32(rdata).to_bytes(4, byteorder='little')
+    with open(outfilename, 'wb') as f:
+        f.write(fdata)  #Already removed the CRC
+        f.write(lcrc)
+        f.write(rcrc)
+#

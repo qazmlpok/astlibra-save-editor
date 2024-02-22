@@ -13,17 +13,30 @@ class Items(DataBase):
         #Load from spreadsheet - so this doesn't actually require save data. Should it be completely separate?
         #All of the "_lock" items are locked on my endgame save, with the Egghead achievement. So they almost certainly do not exist.
         item_data = open_spreadsheet('Data/items.csv')
+        if (Globals.is_dlc):
+            #Also load the DLC items. I'm pretty sure these are all new.
+            #But it's possible some item ids are "reused".
+            gaiden_data = open_spreadsheet('Data/gaiden_items.csv')
+            for id in gaiden_data:
+                item_data[id] = gaiden_data[id]
         self.item_data = {}
         
         #Turn each item into 2 fields, which get loaded in init.
         for id in item_data:
             item = Item(filedata, item_data[id])
             self.item_data[id] = item
+
         super().__init__(filedata)
     def GetFields(self):
+        raise Exception("Do not call directly.")
+    def Read(self, filedata):
         for id in self.item_data:
             item = self.item_data[id]
-            yield from item.GetFields()
+            item.Read(filedata)
+    def Write(self, fdata):
+        for id in self.item_data:
+            item = self.item_data[id]
+            item.Write(fdata)
     def Print(self):
         for id in self.item_data:
             item = self.item_data[id]
@@ -95,6 +108,8 @@ class Item(DataBase):
     def SetCountIfBelow(self, val):
         if val > self.count:
             self.SetCount(val)
+    def __repr__(self):
+        return f'{self.name}  ({self.count})'
     
 class ItemCollection():
     """ A collection of items that can be acted on at once.
@@ -119,4 +134,4 @@ class ItemCollection():
         #Can't iterate a set. Bleh.
         l = list(self.selection)
         return l
-    
+#
