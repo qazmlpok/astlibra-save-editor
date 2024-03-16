@@ -1,7 +1,24 @@
 Id,Name
+37,Tea
 98,Golden Ticket
+120,Mug
+131,Novel [Doppelganger]
+137,Style Gauge +1
 299,Enhancement Gem Fragment
 300,Large Enhancement Gem Fragment
+0xB6,Style: Explorer
+0xB7,Style: Swordswoman
+0xB8,Style: Magician
+0xB9,Style: Guardian
+0xBA,Style: Thief
+0xBB,Style: Barbarian
+0xBC,Style: Knight
+0xBD,Style: Lancer
+0xBE,Style: Dancer
+0xBF,Style: Ninja
+194,Technique Scroll: Air Surf
+196,Technique Scroll: Zero Gravity
+197,Book of Battle Records
 0x142,unk_322
 0x143,unk_323
 0x144,unk_324
@@ -13,7 +30,7 @@ Id,Name
 0x14A,unk_330
 0x14B,unk_331
 0x14C,unk_332
-0x14D,unk_333
+0x14D,Shiro's Hairstyle
 0x14E,unk_334
 0x14F,unk_335
 0x150,unk_336
@@ -29,7 +46,7 @@ Id,Name
 0x15A,unk_346
 0x15B,unk_347
 0x15C,unk_348
-0x15D,unk_349
+0x15D,Witch's Top
 0x15E,unk_350
 0x15F,Lottery Ticket
 0x160,Luxury Lottery Ticket

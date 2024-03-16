@@ -1,0 +1,73 @@
+1: Broom
+2: Stump
+3: Gloves
+4: Wooden Sword
+5: Barrel Hammer
+6: Wooden Staff
+7: Key Blade
+8: Ancient Sword
+Frying Pan
+Saw
+Garden Fork
+Kitchen Knife
+Hatchet
+Paw Stick
+Iron Sword
+16: Stone Greatsword
+17? Dragon Head
+18? Dagger
+19? Iron Hammer
+20? Rapier
+21? Battle Axe
+22? Pick Hammer
+23? Partisan
+24? Moonlight Staff
+25? Ixion Sword
+26? Granteinn
+27? Naginata
+28? Battle Hammer
+29? Magical Girl's Staff
+30: Morgenstern
+31? Katana
+32? Lindwurm
+33? Fire Crystal Dagger
+34? Fire Lance
+35? Feather Sword
+36? Zweihander
+37: Guardian Axe
+38: Lunar Fan
+39: Halberd
+40: Earthshaker
+41: Dark Staff
+42: Azure Crystal Dagger
+43: Kikuichimonji
+44: Princess Sword
+45: Angel Baton
+Barbarian Axe
+Black Sword
+Sword of Slaughter
+Burst Hammer
+Thunder Sword
+Trishula
+Rose Foil
+Dragon Killer
+Flame Sword
+Cursed Sword Hrunting
+56: Butterfly Axe
+Brionac
+Ukonvasara
+Holy Staff Exodus
+Golden Axe
+Hero's Blade
+Dragvandil
+Oni's Iron Club
+Caladbolg
+Axe Bunker
+Katana Blade
+67: Solar Fan
+68: Caduceus
+69: Ultima Weapon
+70: Demon Blade Murasame
+71: Phoenix Blade
+72: Holy Sword Kutune Shirka
+73: Divine Sword Ec Stasia

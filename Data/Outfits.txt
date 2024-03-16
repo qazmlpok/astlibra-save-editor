@@ -1,0 +1,45 @@
+Default
+1: Bright Hair Color
+3: Shiro's Hairstyle
+4: Kuro's Hairstyle
+5: Ponytail
+7: Short Bob
+6: Silver Ponytail
+9: Witch's Black Hair
+8: Short Bob (Pink)
+2: ??? Hairstyle
+10: Liese's Long Hair
+
+1: Floral Ornament
+2: ???'s Floral Ornament
+3: Crown
+4: Halo
+5: Headband
+6: Mask
+7: Katyusha
+8: Bunny-Ear Headband
+9: Witch's Hat
+10: Liese's Hat
+
+1: Grey Top
+3: Shiro's Top
+4: Kuro's Top
+5: Exercise Clothes
+2: ??? Top
+6: Queen's Top
+7: Maid's Top
+8: Bunny Suit Top
+9: Witch's Top
+10: Liese's Top
+
+1: Grey Skirt
+3: Shiro's Skirt
+4: Kuro's Skirt
+5: Bloomers
+2: ??? Skirt
+6: Queen's Bottom
+7: Maid's Skirt
+8: Bunny Suit Bottoms
+9: Witch's Skirt
+10: Liese's Skirt
+

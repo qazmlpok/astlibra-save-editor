@@ -65,6 +65,10 @@ class Character(DataBase):
             self.fields.extend([
                 Field('style',          0x20d6, 1),
                 Field('substyle',       0x20d7, 1),
+                Field('outfit_hair',    0x2053, 1),     #Duplicated in 0x7430 for saveslot display
+                Field('outfit_top',     0x2054, 1),     #0x7434
+                Field('outfit_bottom',  0x2055, 1),     #0x7438
+                Field('outfit_ornament',0x2056, 1),     #0x743c
             ])
         #Currently available force
         self.fields.extend(Globals.array_to_field(Globals.force, 0x73b4, 4, 'force'))
@@ -325,12 +329,12 @@ class Record(DataBase):
 
 #DLC only.
 class Style(DataBase):
-    pass
     #Current style is at 0x20d6; substyle 0x20d7 (Character)
     #Unlock flag _might_ be around 0x1930. That was Dancer.
     #Each style can have up to 3 boards, which have their own selections...
     #and an XP bar per style.
     #But these would be a pain to deal with.
+    pass
 
 def add_force(val, color = None):
     assert val > 0
@@ -378,7 +382,7 @@ partners = Partners(fdata)
 #partners.SetXp('Polin')
 #partners.SetXp('Kai')
 
-#add_force(50000)
+#add_force(30000)
 chara.Print()
 
 #misc achievements
@@ -392,7 +396,7 @@ chara.Print()
 
 #Apply modifications. 
 #stats.Write(fdata)
-#chara.Write(fdata)
+chara.Write(fdata)
 #partners.Write(fdata)
 
 

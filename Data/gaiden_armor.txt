@@ -1,0 +1,37 @@
+1	Thatch Spaulders
+2	Patchwork Spaulders
+3	Forested Spaulders
+4	Champion's Spaulders
+5	Leather Spaulders
+6	Hardwood Spaulders
+7	Ritual Spaulders
+8	Elf Spaulders
+9	Scale Spaulders
+10	Reinforced Leather Spaulders
+11	Barbarian Spaulders
+12	Church Spaulders
+13	Dark Spaulders
+14	Iron Spaulders
+15	Magician's Spaulders
+16	Imperial Knight Spaulders
+17	Holy Spaulders
+18	Battle Maniac's Spaulders
+19	Elemental Gap
+20	Reaper's Spaulders
+21	Shinobi's Shoulder Garb
+22	The Scream
+23	Rightful King's Spaulders
+24	Draconic Spaulders
+25	Ancient Spaulders
+26	Golden Pauldrons
+27	Thanatos
+28	Bladed Spaulders
+29	Silver Spaulders
+30	Dark Knight's Spaulders
+31	Kronos
+32	Machine Spaulders
+33	Apocalyptic Pauldrons
+34	Hero's Spaulders
+35	Valhalla
+36	Great Sage's Robe
+37	Divine Pauldrons Faxana-du

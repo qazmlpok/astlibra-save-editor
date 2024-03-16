@@ -1,0 +1,35 @@
+1	Bamboo Shield
+2	Wooden Shield
+3	Buckler
+4	Craftsman's Shield
+5	Giant Shield
+6	Stone Shield
+7	Droplet Shield
+8	Ice Shield
+9	Feather Shield
+10	Scale Shield
+11	Skeleton Shield
+12	Phoenix Shield
+13	Umbrella
+14	Iron Wall
+15	Coral Shield
+16	Magic Stone Shield
+17	Baroque Shield
+18	Turtle Shield
+19	Holy Knight's Shield
+20	Wicked King's Shield
+21	Dark Knight Shield
+22	Hydra Shield
+23	Magical Girl's Shield
+24	Gothic Shield
+25	High Ancient
+26	Lion Shield
+27	Goliath
+28	Parasol
+29	Crystal Shield
+30	Machine Shield
+31	Princess Shield
+32	Diabolos
+33	Hero's Shield
+34	Holy Shield Elna Saga
+35	Divine Shield Ignition
